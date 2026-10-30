@@ -2,6 +2,9 @@
 
 # Roventis Agent Workspace
 
+> **Roventis Technologies** — maintained by [Prajwal C](https://github.com/Prajwal-Kevil). See [`ROVENTIS_STANDARDS.md`](ROVENTIS_STANDARDS.md) for repository, safety, and contribution standards.
+
+
 **The AI workspace Roventis teams can make their own.** Same shape as ChatGPT, Claude or Grok, with one difference that matters: it runs on your infrastructure and you can change anything about it. Any agent stack, through AG-UI.
 
 Each coworker gets a real browser with its own logins, its own files, and only the tools you grant. Every action decided before it happens and recorded after.
