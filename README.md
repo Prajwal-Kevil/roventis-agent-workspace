@@ -1,8 +1,8 @@
 <div align="center">
 
-# OpenBot
+# Roventis Agent Workspace
 
-**The AI assistant your company can actually own.** Same shape as ChatGPT, Claude or Grok, with one difference that matters: it runs on your infrastructure and you can change anything about it. Any agent stack, through AG-UI.
+**The AI workspace Roventis teams can make their own.** Same shape as ChatGPT, Claude or Grok, with one difference that matters: it runs on your infrastructure and you can change anything about it. Any agent stack, through AG-UI.
 
 Each coworker gets a real browser with its own logins, its own files, and only the tools you grant. Every action decided before it happens and recorded after.
 
@@ -29,9 +29,9 @@ your own machine.
 
 </div>
 
-> **A template, not a product.** OpenBot is meant to be cloned and made your own. There is no hosted version to sign up for, and nothing here is published as a package to depend on: every workspace in this repository is private. You take the repository, replace the example tenant package under `examples/` with your own coworkers, channels and skills, and run it. Everything below describes a starting point, not a finished thing somebody operates for you.
+> **A template, not a product.** Roventis Agent Workspace is a Roventis Technologies tenant profile built to be customized for real product teams. There is no hosted version to sign up for, and nothing here is published as a package to depend on: every workspace in this repository is private. You take the repository, replace the example tenant package under `examples/` with your own coworkers, channels and skills, and run it. Everything below describes a starting point, not a finished thing somebody operates for you.
 
-> **Beta, and under active development.** OpenBot is early. Expect rough edges and bugs, and expect things to move. Issues and pull requests are welcome.
+> **Beta, and under active development.** This upstream OpenBot foundation is early. Expect rough edges and bugs, and expect things to move. Issues and pull requests are welcome.
 
 > **Runs on your machine.** Everything below is written for a laptop. `.env.example` carries `OPENBOT_SINGLE_USER=true`, which admits every request as one administrator, so a fresh clone reaches the product without registering an OAuth client first. [Sign-in](#sign-in) turns that off, and is required before anybody else can reach the deployment.
 
@@ -42,11 +42,13 @@ your own machine.
 > In the meantime, run all of it on your laptop, Intelligence included: CopilotKit's free Developer plan
 > covers [running Intelligence locally](#intelligence-on-your-own-machine) in Docker on a Mac.
 
+> **Roventis edition.** This repository is a branded Roventis Technologies customization of OpenBot. Upstream attribution and the MIT license are preserved; see [`ROVENTIS_CUSTOMIZATION.md`](ROVENTIS_CUSTOMIZATION.md).
+
 ## What it is
 
 An agent platform that runs inside your own infrastructure. Docker Compose brings up every part of it, the data sits in your PostgreSQL, and the model is yours to choose: no model ships in the box, and an administrator supplies the credential, which is encrypted at rest and never logged.
 
-A deployment starts with two coworkers, and they are configuration rather than code: **General Assistant** for everyday work and **Knowledge** for company questions. A **Risk Analyst** joins them once its endpoint is configured, and ten more wait in `examples/fintech/catalog/`, each doing one job — reading an expense claim against the policy as written, turning a meeting note into the follow-ups actually in it, drafting release notes from what shipped, triaging a ticket, answering a new starter from the handbook, writing a brief that names what it could not find, writing up an interview, handing an on-call shift over, assembling what is known before a renewal, and grouping customer feedback into themes it can cite. Copy one into `examples/fintech/agents/` to add it, write your own there or in `agents.yaml`, or make one from `/bots` in the UI.
+A Roventis deployment starts with two coworkers, configured rather than hard-coded: **Roventis Workmate** for product and operations work and **Roventis Knowledge** for company questions. The starter package also includes focused coworkers for website and app planning, SaaS launches, QA release review, and customer-success drafting. Copy or adapt one in `examples/roventis/agents/` to add it, write your own in `agents.yaml`, or create one from `/bots` in the UI.
 
 Anything a Bot does to a computer, a file, an MCP server or a component goes through one gateway that decides and records it. That is the difference between an agent that can use your tools and an agent you can let near them.
 
@@ -261,7 +263,7 @@ A host on its own covers any port on that host; a host with a port pins that por
 
 The list covers agent endpoints only. Browsing is unaffected, the addresses holding a deployment's own cloud credentials are refused whatever is listed, and listing an address permits registering an agent there rather than granting that agent anything.
 
-Tenant package agents are declared in the package's own `agents.yaml`, in the directory `TENANT_PACKAGE_DIR` names (`examples/fintech` by default), or each in a file of its own under that package's `agents/` directory, as either:
+Tenant package agents are declared in the package's own `agents.yaml`, in the directory `TENANT_PACKAGE_DIR` names (`examples/roventis` by default), or each in a file of its own under that package's `agents/` directory, as either:
 
 - `built-in`, with a system prompt; or
 - `remote-ag-ui`, with an endpoint.
@@ -301,7 +303,7 @@ Settings worth knowing:
 | `AGENT_COMPUTER_POLICY`              | JSON action policy. Malformed JSON stops server startup.                  |
 | `AGENT_COMPUTER_ALLOW_PRIVATE_HOSTS` | Lets a Bot reach this machine's own services. Local only, and refused under `NODE_ENV=production`. |
 | `AGENT_ENDPOINT_ALLOWED_HOSTS`       | Private addresses an agent may be registered at, comma separated. A host, optionally with a port. |
-| `TENANT_PACKAGE_DIR`                 | Directory containing tenant YAML. Defaults to `../examples/fintech`.      |
+| `TENANT_PACKAGE_DIR`                 | Directory containing tenant YAML. Defaults to `../examples/roventis`.      |
 | `DEPLOYMENT_ID`                      | Names this deployment when two share one Intelligence project.            |
 | `OPENBOT_SELF_HOST_BANNER`           | Set `false` to hide the bar offering CopilotKit's help self-hosting OpenBot. It never shows on a paid Intelligence plan. |
 

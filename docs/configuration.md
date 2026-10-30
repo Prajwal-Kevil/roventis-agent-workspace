@@ -48,7 +48,7 @@ at `agent-langgraph` on a laptop.
 | -------------------- | ---------------------------------- | ------------------------------------------------------------------- |
 | `PORT`               | `3001`                             | API server port. `SERVER_PORT` names the same port; set either, or both to the same value, or the server refuses to start. |
 | `NODE_ENV`           | unset                              | `production` refuses the example `KEY_ENCRYPTION_KEY`. It does not decide whether sign-in is required; see `OPENBOT_SINGLE_USER`. |
-| `TENANT_PACKAGE_DIR` | `../examples/fintech`              | Tenant package directory, resolved from `server/`.                  |
+| `TENANT_PACKAGE_DIR` | `../examples/roventis`              | Tenant package directory, resolved from `server/`.                  |
 | `DEPLOYMENT_ID`      | the tenant package's id            | Names this deployment inside a shared Intelligence project, and prefixes the identity a Shared app's account is held under at the vendor. That identity is fixed when the app is made Shared, so changing this later does not move it. |
 | `OPENAI_API_KEY`     | unset                              | Default model key for built-in agents and both shipped Bots.        |
 | `OPENAI_BASE_URL`    | unset                              | OpenAI-compatible endpoint that key is spent against. See below.    |
@@ -1063,7 +1063,7 @@ Set `OPENBOT_ONE_COMPUTER_EACH=false` when using `start.sh` to run everybody's B
 The tenant package contains five required YAML files, and two optional:
 
 ```text
-examples/fintech/
+examples/roventis/
 ├── brand.yaml
 ├── agents.yaml
 ├── channels.yaml
@@ -1153,12 +1153,12 @@ message saying which file wanted it, rather than leaving a Bot pointed at an add
 A coworker may also be one file of its own, in an `agents/` directory beside `agents.yaml`. Both are
 read, and a package that keeps every coworker in `agents.yaml` is unchanged.
 
-The shipped package starts with two coworkers, General Assistant and Knowledge, both in `agents.yaml`.
-Its other two entries, Risk Analyst and the picked harness, register only when their endpoints are
+The shipped package starts with two coworkers, Roventis Workmate and Roventis Knowledge, both in `agents.yaml`.
+Its other two entries, the selected remote harness, register only when their endpoints are
 configured. Ten more are in `catalog/`, which is not read. Copy one into `agents/` to add it:
 
 ```yaml
-# examples/fintech/agents/expense-review.yaml, copied from catalog/
+# examples/roventis/agents/expense-review.yaml, copied from catalog/
 id: expense-review
 name: Expense Review
 title: Finance Operations

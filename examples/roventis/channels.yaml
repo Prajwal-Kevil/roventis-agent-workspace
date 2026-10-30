@@ -1,0 +1,11 @@
+channels:
+  - id: roventis-workmate
+    name: Roventis Workmate
+    description: Plan and draft product, engineering, customer, and operations work.
+    permitted_agents: [roventis-workmate]
+    allowed_groups: [all]
+  - id: company-knowledge
+    name: Roventis Knowledge
+    description: Find authorized answers from Roventis company documents.
+    permitted_agents: [roventis-knowledge]
+    allowed_groups: [all]

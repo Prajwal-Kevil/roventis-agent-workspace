@@ -1,0 +1,5 @@
+sources:
+  - type: google-drive
+    roots: [Product, Engineering, Customer Success, Operations]
+  - type: microsoft-onedrive
+    roots: [Product, Engineering, Customer Success, Operations]
